@@ -9,10 +9,30 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Center(
-          child: Text(
-            "AttendAssist",
-            style: GoogleFonts.lato(
-                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+          child: RichText(
+            text: TextSpan(
+              text: 'A',
+              style: GoogleFonts.lato(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+              children: <TextSpan>[
+                TextSpan(
+                  text: 'tt',
+                  style: GoogleFonts.lato(
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xffecae36),
+                      fontSize: 30),
+                ),
+                TextSpan(
+                  text: 'end Assist',
+                  style: GoogleFonts.lato(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ],
+            ),
           ),
         ),
         actions: [
@@ -59,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: Colors.black,
+                  backgroundColor: const Color(0xff101820),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -96,7 +116,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: Colors.black,
+                  backgroundColor: const Color(0xff101820),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
