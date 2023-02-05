@@ -1,4 +1,4 @@
-import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/attendassistscreen.dart';
+import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/AssignmentManager/attendassistscreen.dart';
 import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/community.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';

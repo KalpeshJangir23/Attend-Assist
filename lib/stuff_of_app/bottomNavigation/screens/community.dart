@@ -1,4 +1,4 @@
-import 'package:attend_assist/colorpallete/colorss.dart';
+import 'package:attend_assist/impstuff/colorss.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

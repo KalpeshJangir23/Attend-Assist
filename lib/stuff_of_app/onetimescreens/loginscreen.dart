@@ -1,3 +1,4 @@
+import 'package:attend_assist/impstuff/colorss.dart';
 import 'package:attend_assist/stuff_of_app/bottomNavigation/bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,15 +15,13 @@ class LoginScreen extends StatelessWidget {
             text: TextSpan(
               text: 'A',
               style: GoogleFonts.lato(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  fontSize: 25, fontWeight: FontWeight.bold, color: whitecolor),
               children: <TextSpan>[
                 TextSpan(
                   text: 'tt',
                   style: GoogleFonts.lato(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xffecae36),
+                      color: goldencolor,
                       fontSize: 30),
                 ),
                 TextSpan(
@@ -30,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                   style: GoogleFonts.lato(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: whitecolor),
                 ),
               ],
             ),
@@ -80,12 +79,12 @@ class LoginScreen extends StatelessWidget {
                   "Continue with Google",
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.white,
+                    color: whitecolor,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: const Color(0xff101820),
+                  backgroundColor: blackcolor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -117,12 +116,12 @@ class LoginScreen extends StatelessWidget {
                   "Continue with GitHub",
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.white,
+                    color: whitecolor,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: const Color(0xff101820),
+                  backgroundColor: blackcolor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),

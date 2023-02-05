@@ -1,8 +1,8 @@
-import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/ass_screen/mainassscreen.dart';
+import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/AssignmentManager/ass_screen/mainassscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../colorpallete/colorss.dart';
+import '../../../../impstuff/colorss.dart';
 
 class AttendAssist extends StatefulWidget {
   const AttendAssist({super.key});
