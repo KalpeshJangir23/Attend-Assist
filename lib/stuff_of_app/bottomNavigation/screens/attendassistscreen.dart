@@ -1,5 +1,8 @@
+import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/ass_screen/mainassscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../colorpallete/colorss.dart';
 
 class AttendAssist extends StatefulWidget {
   const AttendAssist({super.key});
@@ -15,7 +18,7 @@ class _AttendAssistState extends State<AttendAssist> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: blackcolor,
           title: Center(
             child: RichText(
               text: TextSpan(
@@ -23,13 +26,13 @@ class _AttendAssistState extends State<AttendAssist> {
                 style: GoogleFonts.lato(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                    color: whitecolor),
                 children: <TextSpan>[
                   TextSpan(
                     text: 'tt',
                     style: GoogleFonts.lato(
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xffecae36),
+                        color: goldencolor,
                         fontSize: 30),
                   ),
                   TextSpan(
@@ -37,7 +40,7 @@ class _AttendAssistState extends State<AttendAssist> {
                     style: GoogleFonts.lato(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: whitecolor),
                   ),
                 ],
               ),
@@ -45,18 +48,18 @@ class _AttendAssistState extends State<AttendAssist> {
           ),
           bottom: const TabBar(
             //isScrollable: true,
-            indicatorColor: Color(0xffecae36),
+            indicatorColor: goldencolor,
             indicatorWeight: 5,
             tabs: [
               Tab(
                 icon: Icon(
                   Icons.star,
-                  color: Color(0xffecae36),
+                  color: goldencolor,
                 ),
                 text: 'Attendance',
               ),
               Tab(
-                icon: Icon(Icons.checklist, color: Color(0xffecae36)),
+                icon: Icon(Icons.checklist, color: goldencolor),
                 text: 'Assignment',
               ),
             ],
@@ -65,27 +68,7 @@ class _AttendAssistState extends State<AttendAssist> {
           titleSpacing: 20,
         ),
         body: const TabBarView(
-          children: <Widget>[
-            AttendanceFile(),
-            AssignmentFile(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class AssignmentFile extends StatelessWidget {
-  const AssignmentFile({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      child: const Center(
-        child: Text(
-          "HEY THERE!!",
-          style: TextStyle(fontSize: 28, color: Color(0xffffffff)),
+          children: <Widget>[AttendanceFile(), MainAssScreen()],
         ),
       ),
     );
@@ -98,11 +81,11 @@ class AttendanceFile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: blackcolor,
       child: const Center(
         child: Text(
-          "HEY Asshole!",
-          style: TextStyle(fontSize: 28, color: Color(0xffffffff)),
+          "HEY THERE!!",
+          style: TextStyle(fontSize: 28, color: whitecolor),
         ),
       ),
     );

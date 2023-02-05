@@ -1,3 +1,4 @@
+import 'package:attend_assist/colorpallete/colorss.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,13 +18,11 @@ class _CommunityPageState extends State<CommunityPage> {
         title: Text(
           "Community",
           style: GoogleFonts.lato(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Color(0xffecae36)),
+              fontSize: 24, fontWeight: FontWeight.bold, color: goldencolor),
         ),
       ),
       body: Container(
-        color: Color(0xff000000),
+        color: blackcolor,
         width: double.infinity,
         height: double.infinity,
       ),
