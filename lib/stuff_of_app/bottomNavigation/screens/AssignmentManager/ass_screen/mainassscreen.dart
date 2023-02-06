@@ -23,6 +23,14 @@ class _MainAssScreenState extends State<MainAssScreen> {
     });
   }
 
+  void saveNewtaxk() {
+    setState(() {
+      todolist.add([_controller.text, false]);
+      _controller.clear();
+    });
+    Navigator.of(context).pop();
+  }
+
   // create a new task
   void createNewTask() {
     showDialog(
@@ -30,11 +38,17 @@ class _MainAssScreenState extends State<MainAssScreen> {
       builder: (context) {
         return DialogBox(
           controller: _controller,
-          onSave: () {},
+          onSave: () => saveNewtaxk(),
           onCancel: () => Navigator.of(context).pop(),
         );
       },
     );
+  }
+
+  void deletetask(int index) {
+    setState(() {
+      todolist.removeAt(index);
+    });
   }
 
   @override
@@ -59,7 +73,7 @@ class _MainAssScreenState extends State<MainAssScreen> {
             taskName: todolist[index][0],
             taskCompleted: todolist[index][1],
             onChanged: (value) => checkboxChanged(value, index),
-            deleteFunction: (p0) {},
+            deleteFunction: (context) => deletetask(index),
           );
         },
       ),
