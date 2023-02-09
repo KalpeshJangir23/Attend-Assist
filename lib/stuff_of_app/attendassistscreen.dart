@@ -2,7 +2,8 @@ import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/AssignmentMa
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../impstuff/colorss.dart';
+import '../impstuff/colorss.dart';
+import 'bottomNavigation/screens/attendanceScreen/attendance_screen.dart';
 
 class AttendAssist extends StatefulWidget {
   const AttendAssist({super.key});
@@ -69,23 +70,6 @@ class _AttendAssistState extends State<AttendAssist> {
         ),
         body: const TabBarView(
           children: <Widget>[AttendanceFile(), MainAssScreen()],
-        ),
-      ),
-    );
-  }
-}
-
-class AttendanceFile extends StatelessWidget {
-  const AttendanceFile({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: blackcolor,
-      child: const Center(
-        child: Text(
-          "HEY THERE!!",
-          style: TextStyle(fontSize: 28, color: whitecolor),
         ),
       ),
     );
