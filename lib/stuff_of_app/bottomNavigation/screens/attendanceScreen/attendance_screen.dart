@@ -1,3 +1,4 @@
+import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/attendanceScreen/attendDialogbox.dart';
 import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/attendanceScreen/containerUi.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class AttendanceFile extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
           backgroundColor: goldencolor,
-          onPressed: () {},
+          onPressed: () => DialogBoxContainerUI(),
           child: const Icon(
             Icons.add,
             color: blackcolor,

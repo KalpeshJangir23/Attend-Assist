@@ -11,7 +11,7 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  int index = 0;
+  int index = 1;
   final List screen = [const CommunityPage(), const AttendAssist()];
   @override
   Widget build(BuildContext context) {

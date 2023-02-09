@@ -1,6 +1,9 @@
-import 'package:attend_assist/impstuff/colorss.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../../impstuff/colorss.dart';
 
 class ContainerUi extends StatefulWidget {
   const ContainerUi({super.key});
@@ -10,118 +13,134 @@ class ContainerUi extends StatefulWidget {
 }
 
 class _ContainerUiState extends State<ContainerUi> {
+  int plus = 0;
+  int primaryresult = 0;
+
+  void _plusincremnent() {
+    setState(() {
+      plus++;
+    });
+  }
+
+  void _minusdecremnent() {
+    setState(() {
+      if (plus == 0) {
+        plus = 0;
+      } else {
+        plus--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: 320,
-      //color: textColor,
-      decoration: BoxDecoration(
-        color: goldencolor,
-        borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 3,
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          )
-        ],
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(7.0),
-                child: Padding(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 150,
+        width: 320,
+        //color: textColor,
+        decoration: BoxDecoration(
+          color: goldencolor,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(7.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      width: 190,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: goldencolor,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          style: GoogleFonts.lato(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: blackcolor),
+                          decoration: const InputDecoration(
+                            hintText: "enter Subject.",
+                            hintStyle:
+                                TextStyle(fontSize: 15, color: Colors.white70),
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Container(
-                    width: 190,
                     height: 40,
+                    width: 90,
                     decoration: BoxDecoration(
-                      color: lightblackcolor,
-                      borderRadius: BorderRadius.circular(30),
+                        color: blackcolor,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Center(child: GestureDetector()),
+                  ),
+                ),
+              ],
+            ),
+            const Divider(
+              color: blackcolor,
+              thickness: 2,
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: blackcolor,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: whitecolor),
                     ),
-                    child: TextField(
-                      style: GoogleFonts.averiaGruesaLibre(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: goldencolor),
-                      decoration: const InputDecoration(
-                        hintText: "   enter Subject",
-                        hintStyle:
-                            TextStyle(fontSize: 15, color: Colors.white54),
-                        border: InputBorder.none,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Text(
+                          '$plus',
+                          style: GoogleFonts.averiaGruesaLibre(
+                              color: goldencolor,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Container(
-                  height: 40,
-                  width: 90,
-                  decoration: BoxDecoration(
-                      color: lightblackcolor,
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Center(child: GestureDetector()),
+                Text(
+                  "/",
+                  style: GoogleFonts.averiaGruesaLibre(
+                      fontSize: 45, color: blackcolor),
                 ),
-              ),
-            ],
-          ),
-          const Divider(
-            color: lightblackcolor,
-            thickness: 2,
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: lightblackcolor,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: whitecolor),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Text(
-                        '75',
-                        style: GoogleFonts.averiaGruesaLibre(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: blackcolor,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: whitecolor),
                     ),
-                  ),
-                ),
-              ),
-              Text(
-                "/",
-                style: GoogleFonts.averiaGruesaLibre(
-                    fontSize: 45, color: goldencolor),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: lightblackcolor,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: whitecolor),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 1, bottom: 2),
                     child: Center(
                       child: TextField(
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         style: GoogleFonts.averiaGruesaLibre(
-                            color: whitecolor,
+                            color: goldencolor,
                             fontSize: 25,
                             fontWeight: FontWeight.bold),
                         decoration:
@@ -130,48 +149,48 @@ class _ContainerUiState extends State<ContainerUi> {
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                width: 40,
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: lightblackcolor,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: whitecolor),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: whitecolor,
+                const SizedBox(
+                  width: 40,
+                ),
+                GestureDetector(
+                  onTap: () => _plusincremnent(),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: blackcolor,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: whitecolor),
+                    ),
+                    child: const Icon(
+                      Icons.add,
+                      color: whitecolor,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: lightblackcolor,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: whitecolor),
-                  ),
-                  child: const Icon(
-                    Icons.remove,
-                    color: lightblackcolor,
-                  ),
+                const SizedBox(
+                  width: 15,
                 ),
-              )
-            ],
-          )
-        ],
+                GestureDetector(
+                  onTap: () => _minusdecremnent(),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: blackcolor,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: whitecolor),
+                    ),
+                    child: const Icon(
+                      Icons.remove,
+                      color: whitecolor,
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

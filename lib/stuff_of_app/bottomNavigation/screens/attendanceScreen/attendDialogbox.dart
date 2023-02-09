@@ -1,18 +1,12 @@
-import 'package:attend_assist/impstuff/buttons.dart';
-import 'package:attend_assist/impstuff/colorss.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
-class DialogBox extends StatelessWidget {
-  final controller;
-  VoidCallback onSave;
-  VoidCallback onCancel;
+import '../../../../impstuff/buttons.dart';
+import '../../../../impstuff/colorss.dart';
 
-  DialogBox({
-    super.key,
-    required this.controller,
-    required this.onSave,
-    required this.onCancel,
-  });
+class DialogBoxContainerUI extends StatelessWidget {
+  const DialogBoxContainerUI({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +18,8 @@ class DialogBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // get user input
-            TextField(
-              controller: controller,
-              decoration: const InputDecoration(
+            const TextField(
+              decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "Add a new task",
               ),
@@ -37,17 +30,24 @@ class DialogBox extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // save button
-                MyButton(text: "Save", onPressed: onSave),
+                MyButton(
+                  text: "Save",
+                  onPressed: () {},
+                ),
 
                 const SizedBox(width: 8),
 
                 // cancel button
-                MyButton(text: "Cancel", onPressed: onCancel),
+                MyButton(
+                  text: "Cancel",
+                  onPressed: () {},
+                ),
               ],
             ),
           ],
         ),
       ),
     );
+    ;
   }
 }

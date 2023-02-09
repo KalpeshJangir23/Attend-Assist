@@ -25,6 +25,13 @@ class _CommunityPageState extends State<CommunityPage> {
         color: blackcolor,
         width: double.infinity,
         height: double.infinity,
+        child: Center(
+          child: Text(
+            "ComingSoon.......",
+            style: GoogleFonts.lato(
+                fontSize: 25, fontWeight: FontWeight.bold, color: goldencolor),
+          ),
+        ),
       ),
     );
   }
