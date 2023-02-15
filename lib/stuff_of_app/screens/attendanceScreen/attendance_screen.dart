@@ -1,8 +1,8 @@
-import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/attendanceScreen/attendDialogbox.dart';
-import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/attendanceScreen/containerUi.dart';
+import 'package:attend_assist/stuff_of_app/screens/attendanceScreen/attendDialogbox.dart';
+import 'package:attend_assist/stuff_of_app/screens/attendanceScreen/containerUi.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../impstuff/colorss.dart';
+import '../../../impstuff/colorss.dart';
 
 class AttendanceFile extends StatelessWidget {
   const AttendanceFile({super.key});

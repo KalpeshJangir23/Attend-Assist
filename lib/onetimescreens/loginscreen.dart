@@ -1,5 +1,6 @@
 import 'package:attend_assist/impstuff/colorss.dart';
-import 'package:attend_assist/stuff_of_app/bottomNavigation/bottom_nav.dart';
+import 'package:attend_assist/stuff_of_app/attendassistscreen.dart';
+import 'package:attend_assist/stuff_of_app/screens/AssignmentManager/ass_screen/mainassscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -68,7 +69,8 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const BottomNav()),
+                    MaterialPageRoute(
+                        builder: (context) => const AttendAssist()),
                   );
                 },
                 icon: Image.asset(

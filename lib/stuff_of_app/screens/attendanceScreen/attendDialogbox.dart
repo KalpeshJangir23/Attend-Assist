@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../impstuff/buttons.dart';
-import '../../../../impstuff/colorss.dart';
+import '../../../impstuff/buttons.dart';
+import '../../../impstuff/colorss.dart';
 
 class DialogBoxContainerUI extends StatelessWidget {
   const DialogBoxContainerUI({super.key});

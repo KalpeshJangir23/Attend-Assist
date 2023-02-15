@@ -1,8 +1,8 @@
 import 'package:attend_assist/impstuff/colorss.dart';
-import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/AssignmentManager/ass_screen/taskcontainer.dart';
+import 'package:attend_assist/stuff_of_app/screens/AssignmentManager/ass_screen/taskcontainer.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../impstuff/dialog_box.dart';
+import '../../../../impstuff/dialog_box.dart';
 
 class MainAssScreen extends StatefulWidget {
   const MainAssScreen({super.key});
@@ -45,7 +45,6 @@ class _MainAssScreenState extends State<MainAssScreen> {
     );
   }
 
-// hh
   void deletetask(int index) {
     setState(() {
       todolist.removeAt(index);
