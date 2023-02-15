@@ -39,7 +39,7 @@ class _ContainerUiState extends State<ContainerUi> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         height: 150,
-        width: 320,
+        width: MediaQuery.of(context).size.width,
         //color: textColor,
         decoration: BoxDecoration(
           color: goldencolor,
@@ -54,12 +54,14 @@ class _ContainerUiState extends State<ContainerUi> {
                   child: Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Container(
-                      width: 190,
+                      width: 150,
                       height: 40,
                       decoration: BoxDecoration(
                         color: goldencolor,
                         borderRadius: BorderRadius.circular(30),
                       ),
+                      //// subject enter text field
+
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextField(
@@ -78,8 +80,12 @@ class _ContainerUiState extends State<ContainerUi> {
                     ),
                   ),
                 ),
+
+                ///
+                // Subject percentage
+                Spacer(),
                 Padding(
-                  padding: const EdgeInsets.all(2.0),
+                  padding: const EdgeInsets.all(1.0),
                   child: Container(
                     height: 40,
                     width: 90,
@@ -89,16 +95,32 @@ class _ContainerUiState extends State<ContainerUi> {
                     child: Center(child: GestureDetector()),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.delete_forever,
+                      color: Colors.red.shade500,
+                      size: 25,
+                    ),
+                  ),
+                ),
               ],
             ),
+
+            ///
+            // Divider
             const Divider(
               color: blackcolor,
               thickness: 2,
             ),
             Row(
               children: [
+                ///
+// incremental container
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(2.0),
                   child: Container(
                     height: 50,
                     width: 50,
@@ -121,11 +143,16 @@ class _ContainerUiState extends State<ContainerUi> {
                     ),
                   ),
                 ),
+
+                ///
+                // slash text
                 Text(
                   "/",
                   style: GoogleFonts.averiaGruesaLibre(
                       fontSize: 45, color: blackcolor),
                 ),
+
+                // User enter text container
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -134,7 +161,9 @@ class _ContainerUiState extends State<ContainerUi> {
                     decoration: BoxDecoration(
                       color: blackcolor,
                       shape: BoxShape.circle,
-                      border: Border.all(color: whitecolor),
+                      border: Border.all(
+                        color: whitecolor,
+                      ),
                     ),
                     child: Center(
                       child: TextField(
@@ -150,41 +179,49 @@ class _ContainerUiState extends State<ContainerUi> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 40,
-                ),
-                GestureDetector(
-                  onTap: () => _plusincremnent(),
-                  child: Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: blackcolor,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: whitecolor),
-                    ),
-                    child: const Icon(
-                      Icons.add,
-                      color: whitecolor,
+                ////
+                const Spacer(),
+
+                ///
+                // plus button
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () => _plusincremnent(),
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: blackcolor,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: whitecolor),
+                      ),
+                      child: const Icon(
+                        Icons.add,
+                        color: whitecolor,
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 15,
-                ),
-                GestureDetector(
-                  onTap: () => _minusdecremnent(),
-                  child: Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: blackcolor,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: whitecolor),
-                    ),
-                    child: const Icon(
-                      Icons.remove,
-                      color: whitecolor,
+
+                ///
+                // minus button
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () => _minusdecremnent(),
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        color: blackcolor,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: whitecolor),
+                      ),
+                      child: const Icon(
+                        Icons.remove,
+                        color: whitecolor,
+                      ),
                     ),
                   ),
                 )

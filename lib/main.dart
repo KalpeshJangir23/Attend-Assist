@@ -1,7 +1,10 @@
 // import 'package:attend_assist/stuff_of_app/bottomNavigation/bottom_nav.dart';
 // import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/attendassistscreen.dart';
+// ignore_for_file: unused_local_variable
+
+import 'package:attend_assist/stuff_of_app/attendassistscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:attend_assist/onetimescreens/loginscreen.dart';
+import 'package:attend_assist/onetimescreens/entranceScreen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Attend Assist',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: AttendAssist(),
     );
   }
 }
