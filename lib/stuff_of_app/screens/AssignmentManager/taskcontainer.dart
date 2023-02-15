@@ -1,7 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-import '../../../../impstuff/colorss.dart';
+import '../../../impstuff/colorss.dart';
 
 class ToDoTile extends StatelessWidget {
   final String taskName;
@@ -34,7 +36,7 @@ class ToDoTile extends StatelessWidget {
           ],
         ),
         child: Container(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
             color: goldencolor,
             borderRadius: BorderRadius.circular(12),

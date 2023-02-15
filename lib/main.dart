@@ -2,9 +2,12 @@
 // import 'package:attend_assist/stuff_of_app/bottomNavigation/screens/attendassistscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:attend_assist/onetimescreens/loginscreen.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  var box = await Hive.openBox("assignBox");
   runApp(const MyApp());
 }
 

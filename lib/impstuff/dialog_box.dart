@@ -1,6 +1,7 @@
 import 'package:attend_assist/impstuff/buttons.dart';
 import 'package:attend_assist/impstuff/colorss.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DialogBox extends StatelessWidget {
   final controller;
@@ -17,18 +18,25 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: lightblackcolor,
+      backgroundColor: blackcolor,
       content: Container(
         height: 120,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // get user input
             TextField(
               controller: controller,
-              decoration: const InputDecoration(
+              style: GoogleFonts.lato(
+                color: goldencolor,
+              ),
+              decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "Add a new task",
+                hintStyle: GoogleFonts.lato(color: Colors.white38),
               ),
             ),
 

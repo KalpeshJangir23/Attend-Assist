@@ -1,4 +1,4 @@
-import 'package:attend_assist/stuff_of_app/screens/AssignmentManager/ass_screen/mainassscreen.dart';
+import 'package:attend_assist/stuff_of_app/screens/AssignmentManager/mainassscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
