@@ -1,38 +1,34 @@
-// ignore_for_file: file_names
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, non_constant_identifier_names
+// ignore_for_file: file_name
 
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../impstuff/colorss.dart';
 
 class ContainerUi extends StatefulWidget {
-  const ContainerUi({super.key});
+  final String SubjectName;
+
+  final String SubjectNumber;
+
+  Function(BuildContext) deletevar;
+  Function(BuildContext) plusincremnent;
+  Function(BuildContext) minusdecrement;
+
+  ContainerUi({
+    Key? key,
+    required this.SubjectName,
+    required this.SubjectNumber,
+    required this.deletevar,
+    required this.plusincremnent,
+    required this.minusdecrement,
+  }) : super(key: key);
 
   @override
   State<ContainerUi> createState() => _ContainerUiState();
 }
 
 class _ContainerUiState extends State<ContainerUi> {
-  int plus = 0;
-  int primaryresult = 0;
-
-  void _plusincremnent() {
-    setState(() {
-      plus++;
-    });
-  }
-
-  void _minusdecremnent() {
-    setState(() {
-      if (plus == 0) {
-        plus = 0;
-      } else {
-        plus--;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -64,16 +60,10 @@ class _ContainerUiState extends State<ContainerUi> {
 
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: TextField(
+                        child: Text(
+                          widget.SubjectName,
                           style: GoogleFonts.lato(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: blackcolor),
-                          decoration: const InputDecoration(
-                            hintText: "enter Subject.",
-                            hintStyle:
-                                TextStyle(fontSize: 15, color: Colors.white70),
-                            border: InputBorder.none,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -83,7 +73,7 @@ class _ContainerUiState extends State<ContainerUi> {
 
                 ///
                 // Subject percentage
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Container(
@@ -98,7 +88,7 @@ class _ContainerUiState extends State<ContainerUi> {
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () => widget.deletevar,
                     icon: Icon(
                       Icons.delete_forever,
                       color: Colors.red.shade500,
@@ -133,7 +123,12 @@ class _ContainerUiState extends State<ContainerUi> {
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
                         child: Text(
-                          '$plus',
+                          "",
+                          //
+                          ///
+                          //////
+                          /////
+                          ////
                           style: GoogleFonts.averiaGruesaLibre(
                               color: goldencolor,
                               fontSize: 25,
@@ -166,15 +161,10 @@ class _ContainerUiState extends State<ContainerUi> {
                       ),
                     ),
                     child: Center(
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        keyboardType: TextInputType.number,
-                        style: GoogleFonts.averiaGruesaLibre(
-                            color: goldencolor,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                        decoration:
-                            const InputDecoration(border: InputBorder.none),
+                      child: Text(
+                        widget.SubjectNumber,
+                        style: GoogleFonts.lato(
+                            fontWeight: FontWeight.bold, color: whitecolor),
                       ),
                     ),
                   ),
@@ -187,7 +177,7 @@ class _ContainerUiState extends State<ContainerUi> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
-                    onTap: () => _plusincremnent(),
+                    onTap: () => _plusincremnent,
                     child: Container(
                       height: 50,
                       width: 50,
@@ -209,7 +199,7 @@ class _ContainerUiState extends State<ContainerUi> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
-                    onTap: () => _minusdecremnent(),
+                    onTap: () => _minusdecremnent,
                     child: Container(
                       height: 50,
                       width: 50,

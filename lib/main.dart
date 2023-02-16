@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Attend Assist',
       debugShowCheckedModeBanner: false,
-      home: AttendAssist(),
+      home: LoginScreen(),
     );
   }
 }
