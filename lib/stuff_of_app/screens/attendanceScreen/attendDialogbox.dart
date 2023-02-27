@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 class AttendDialogBox extends StatelessWidget {
   final controller;
   final subjectTlecture;
+  final attendLecture;
   VoidCallback onSave;
   VoidCallback onCancel;
 
@@ -18,6 +19,7 @@ class AttendDialogBox extends StatelessWidget {
     required this.onSave,
     required this.onCancel,
     required this.subjectTlecture,
+    required this.attendLecture,
   });
 
   @override
@@ -25,7 +27,7 @@ class AttendDialogBox extends StatelessWidget {
     return AlertDialog(
       backgroundColor: blackcolor,
       content: Container(
-        height: 200,
+        height: 260,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
         ),
@@ -48,12 +50,26 @@ class AttendDialogBox extends StatelessWidget {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "Add Subject Name",
-                hintStyle: GoogleFonts.lato(color: Colors.white38),
+                hintStyle:
+                    GoogleFonts.lato(color: Colors.white38, fontSize: 15),
               ),
             ),
-            const SizedBox(
-              height: 10,
+
+            TextField(
+              controller: attendLecture,
+              keyboardType: TextInputType.number,
+              maxLength: 2,
+              style: GoogleFonts.lato(
+                color: goldencolor,
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: "Total Attended Lecture ",
+                hintStyle:
+                    GoogleFonts.lato(color: Colors.white38, fontSize: 12),
+              ),
             ),
+
             TextField(
               controller: subjectTlecture,
               keyboardType: TextInputType.number,
@@ -66,7 +82,7 @@ class AttendDialogBox extends StatelessWidget {
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: "Total Lecture Number in a Semester",
+                hintText: "Total Lecture in a Semester",
                 hintStyle:
                     GoogleFonts.lato(color: Colors.white38, fontSize: 12),
               ),

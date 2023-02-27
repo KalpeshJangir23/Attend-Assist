@@ -1,6 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:attend_assist/impstuff/colorss.dart';
 import 'package:attend_assist/stuff_of_app/attendassistscreen.dart';
-import 'package:attend_assist/stuff_of_app/screens/AssignmentManager/mainassscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

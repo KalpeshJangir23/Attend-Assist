@@ -6,29 +6,22 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../impstuff/colorss.dart';
 
-class ContainerUi extends StatefulWidget {
-  final String SubjectName;
-
-  final String SubjectNumber;
-
-  Function(BuildContext) deletevar;
-  Function(BuildContext) plusincremnent;
-  Function(BuildContext) minusdecrement;
+class ContainerUi extends StatelessWidget {
+  final int SubjectNumber;
+  final int AttendedNumber;
+  Function(BuildContext)? deletevar;
+  Function(BuildContext)? plusincremnent;
+  Function(BuildContext)? minusdecrement;
 
   ContainerUi({
     Key? key,
-    required this.SubjectName,
     required this.SubjectNumber,
     required this.deletevar,
     required this.plusincremnent,
     required this.minusdecrement,
+    required this.AttendedNumber,
   }) : super(key: key);
 
-  @override
-  State<ContainerUi> createState() => _ContainerUiState();
-}
-
-class _ContainerUiState extends State<ContainerUi> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -60,10 +53,17 @@ class _ContainerUiState extends State<ContainerUi> {
 
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          widget.SubjectName,
+                        child: TextFormField(
                           style: GoogleFonts.lato(
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
+                            color: blackcolor,
+                          ),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Add Subject Name",
+                            hintStyle: GoogleFonts.lato(
+                                color: Colors.white38, fontSize: 15),
                           ),
                         ),
                       ),
@@ -88,7 +88,7 @@ class _ContainerUiState extends State<ContainerUi> {
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: IconButton(
-                    onPressed: () => widget.deletevar,
+                    onPressed: () => deletevar,
                     icon: Icon(
                       Icons.delete_forever,
                       color: Colors.red.shade500,
@@ -123,12 +123,7 @@ class _ContainerUiState extends State<ContainerUi> {
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
                         child: Text(
-                          "",
-                          //
-                          ///
-                          //////
-                          /////
-                          ////
+                          "$AttendedNumber",
                           style: GoogleFonts.averiaGruesaLibre(
                               color: goldencolor,
                               fontSize: 25,
@@ -162,7 +157,7 @@ class _ContainerUiState extends State<ContainerUi> {
                     ),
                     child: Center(
                       child: Text(
-                        widget.SubjectNumber,
+                        "$SubjectNumber",
                         style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold, color: whitecolor),
                       ),
@@ -177,7 +172,7 @@ class _ContainerUiState extends State<ContainerUi> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
-                    onTap: () => _plusincremnent,
+                    onTap: () => plusincremnent,
                     child: Container(
                       height: 50,
                       width: 50,
@@ -199,7 +194,7 @@ class _ContainerUiState extends State<ContainerUi> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
-                    onTap: () => _minusdecremnent,
+                    onTap: () => minusdecrement,
                     child: Container(
                       height: 50,
                       width: 50,
