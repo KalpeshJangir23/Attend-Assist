@@ -1,9 +1,9 @@
 import 'package:attend_assist/stuff_of_app/screens/AssignmentManager/mainassscreen.dart';
+import 'package:attend_assist/stuff_of_app/screens/attendanceScreen/attendance_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../impstuff/colorss.dart';
-import 'screens/attendanceScreen/attendance_screen.dart';
 
 class AttendAssist extends StatefulWidget {
   const AttendAssist({super.key});
@@ -69,7 +69,7 @@ class _AttendAssistState extends State<AttendAssist> {
           titleSpacing: 20,
         ),
         body: const TabBarView(
-          children: <Widget>[AttendanceFile(), MainAssScreen()],
+          children: <Widget>[AttendacePage(), MainAssScreen()],
         ),
       ),
     );

@@ -7,19 +7,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 
 class AttendDialogBox extends StatelessWidget {
-  final controller;
-  final subjectTlecture;
-  final attendLecture;
+  final subnamecontroller;
+  final attendnocontroller;
+  final totalnolecturecontroller;
+
   VoidCallback onSave;
   VoidCallback onCancel;
 
   AttendDialogBox({
     super.key,
-    required this.controller,
     required this.onSave,
     required this.onCancel,
-    required this.subjectTlecture,
-    required this.attendLecture,
+    required this.subnamecontroller,
+    required this.attendnocontroller,
+    required this.totalnolecturecontroller,
   });
 
   @override
@@ -41,42 +42,39 @@ class AttendDialogBox extends StatelessWidget {
                     color: goldencolor, fontWeight: FontWeight.bold),
               ),
             ),
-            // get user input
+            // Subject Name
             TextField(
-              controller: controller,
+              controller: subnamecontroller,
               style: GoogleFonts.lato(
                 color: goldencolor,
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: "Add Subject Name",
-                hintStyle:
-                    GoogleFonts.lato(color: Colors.white38, fontSize: 15),
-              ),
-            ),
-
-            TextField(
-              controller: attendLecture,
-              keyboardType: TextInputType.number,
-              maxLength: 2,
-              style: GoogleFonts.lato(
-                color: goldencolor,
-              ),
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: "Total Attended Lecture ",
+                hintText: "Enter Subject Name",
                 hintStyle:
                     GoogleFonts.lato(color: Colors.white38, fontSize: 12),
               ),
             ),
-
+// Number of Attended Lecture
             TextField(
-              controller: subjectTlecture,
+              controller: attendnocontroller,
               keyboardType: TextInputType.number,
               maxLength: 2,
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp(r'[0-9]{1,2}')),
-              ],
+              style: GoogleFonts.lato(
+                color: goldencolor,
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: "Number of lecture attended",
+                hintStyle:
+                    GoogleFonts.lato(color: Colors.white38, fontSize: 12),
+              ),
+            ),
+// total number of lecture
+            TextField(
+              controller: totalnolecturecontroller,
+              keyboardType: TextInputType.number,
+              maxLength: 2,
               style: GoogleFonts.lato(
                 color: goldencolor,
               ),
