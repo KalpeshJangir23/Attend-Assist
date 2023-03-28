@@ -13,36 +13,38 @@ class AttendacePage extends StatefulWidget {
 class _AttendacePageState extends State<AttendacePage> {
   @override
   Widget build(BuildContext context) {
-    final _subnamecontroller = TextEditingController();
-    final _attendnocontroller = TextEditingController();
-    final _totalnolecturecontroller = TextEditingController();
+    final subnamecontroller = TextEditingController();
+    final attendnocontroller = TextEditingController();
+    final totalnolecturecontroller = TextEditingController();
+
     List subjectContainer = [
       ["Mathematics enginnering", "30", "30"],
       ["Analysis of Alogorihtm", "0", "35"],
     ];
 
-    void savelecturedetail() {
-      setState(
-        () {
-          subjectContainer.add([
-            _subnamecontroller.text,
-            _attendnocontroller.text,
-            _totalnolecturecontroller.text,
-          ]);
-        },
-      );
+    // add new subject
+    void addSubject() {
+      setState(() {
+        subjectContainer.add([
+          subnamecontroller.text,
+          attendnocontroller.text,
+          totalnolecturecontroller.text
+        ]);
+      });
+      Navigator.of(context).pop();
+      print("new subject added: ");
     }
 
-    void addnewSubject() {
+    void addnewAttendancecontainer() {
       showDialog(
         context: context,
         builder: (context) {
           return AttendDialogBox(
-            onSave: savelecturedetail,
+            onSave: addSubject,
             onCancel: () => Navigator.of(context).pop(),
-            subnamecontroller: _subnamecontroller,
-            attendnocontroller: _attendnocontroller,
-            totalnolecturecontroller: _totalnolecturecontroller,
+            subnamecontroller: subnamecontroller,
+            attendnocontroller: attendnocontroller,
+            totalnolecturecontroller: totalnolecturecontroller,
           );
         },
       );
@@ -54,7 +56,7 @@ class _AttendacePageState extends State<AttendacePage> {
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
           backgroundColor: goldencolor,
-          onPressed: addnewSubject,
+          onPressed: addnewAttendancecontainer,
           child: const Icon(
             Icons.add,
             color: blackcolor,
@@ -62,6 +64,7 @@ class _AttendacePageState extends State<AttendacePage> {
         ),
       ),
       body: ListView.builder(
+        scrollDirection: Axis.vertical,
         itemCount: subjectContainer.length,
         itemBuilder: (context, index) {
           return ContainerUi(

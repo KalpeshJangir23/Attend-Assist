@@ -58,7 +58,6 @@ class AttendDialogBox extends StatelessWidget {
 // Number of Attended Lecture
             TextField(
               controller: attendnocontroller,
-              keyboardType: TextInputType.number,
               maxLength: 2,
               style: GoogleFonts.lato(
                 color: goldencolor,
@@ -73,8 +72,9 @@ class AttendDialogBox extends StatelessWidget {
 // total number of lecture
             TextField(
               controller: totalnolecturecontroller,
-              keyboardType: TextInputType.number,
+              //  keyboardType: TextInputType.number,
               maxLength: 2,
+
               style: GoogleFonts.lato(
                 color: goldencolor,
               ),

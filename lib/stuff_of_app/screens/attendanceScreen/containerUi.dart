@@ -7,10 +7,10 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../impstuff/colorss.dart';
 
 class ContainerUi extends StatelessWidget {
-  final subjectName;
-  final totalsubjectlecture;
-  final attendance;
-  final totalattendance;
+  final String subjectName;
+  final String totalsubjectlecture;
+  final String attendance;
+
   Function(BuildContext)? deletevar;
   Function(BuildContext)? plusincremnent;
   Function(BuildContext)? minusdecrement;
@@ -23,7 +23,6 @@ class ContainerUi extends StatelessWidget {
     required this.minusdecrement,
     required this.attendance,
     required this.subjectName,
-    this.totalattendance,
   }) : super(key: key);
 
   @override
@@ -136,7 +135,7 @@ class ContainerUi extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Center(
                           child: Text(
-                            "$attendance",
+                            attendance,
                             style: GoogleFonts.averiaGruesaLibre(
                                 color: goldencolor,
                                 fontSize: 25,
@@ -170,7 +169,7 @@ class ContainerUi extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          "$totalsubjectlecture",
+                          totalsubjectlecture,
                           style: GoogleFonts.lato(
                               fontWeight: FontWeight.bold,
                               color: whitecolor,
