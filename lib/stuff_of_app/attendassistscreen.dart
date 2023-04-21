@@ -20,6 +20,12 @@ class _AttendAssistState extends State<AttendAssist> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: blackcolor,
+          actions: const [
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Icon(Icons.settings),
+            )
+          ],
           title: Center(
             child: RichText(
               text: TextSpan(
