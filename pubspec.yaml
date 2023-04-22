@@ -43,6 +43,13 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   fluttertoast: ^8.2.1
+  flutter_launcher_icons: ^0.13.1
+flutter_icons:
+  image_path: "assets/2.png"
+  #image_path_android: "assets/images/icon-710x599-android.png"
+  #image_path_ios: "assets/images/icon-1024x1024.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true  
   
   
 

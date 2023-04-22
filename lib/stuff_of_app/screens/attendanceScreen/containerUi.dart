@@ -7,9 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../impstuff/colorss.dart';
 
-int number = 0;
-int _totalLectures = 0;
-double Totalpercentage = 0.0;
+// int number = 0;
+// int _totalLectures = 0;
+// double Totalpercentage = 0.0;
 
 class ContainerUi extends StatefulWidget {
   final String subjectName;
@@ -26,10 +26,13 @@ class ContainerUi extends StatefulWidget {
 }
 
 class _ContainerUiState extends State<ContainerUi> {
+  int number = 0;
+  int _totalLectures = 0;
+  double Totalpercentage = 0.0;
   @override
   void initState() {
     super.initState();
-    number = number;
+    number = 0;
     _totalLectures = _totalLectures;
     Totalpercentage = Totalpercentage;
   }

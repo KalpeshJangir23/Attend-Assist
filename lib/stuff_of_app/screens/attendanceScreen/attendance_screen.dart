@@ -11,24 +11,59 @@ class AttendacePage extends StatefulWidget {
 }
 
 class _AttendacePageState extends State<AttendacePage> {
+  final _controller = TextEditingController();
+
+  final List data = [
+    "Maths",
+  ];
+
+  void onSave() {
+    setState(() {
+      data.add(_controller.text);
+      _controller.clear();
+    });
+    Navigator.of(context).pop();
+  }
+
+  void createTask() {
+    showDialog(
+      context: context,
+      builder: ((context) {
+        return AttendDialogBox(
+          subnamecontroller: _controller,
+          onSave: onSave,
+          onCancel: () => Navigator.of(context).pop(),
+        );
+      }),
+    );
+  }
+
+  void deleteTask(int index) {
+    setState(() {
+      data.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: blackcolor,
-      body: ListView(
-        children: [
-          ContainerUi(
-            deletevar: (p0) {},
-            subjectName: "fucking no idea about",
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          ContainerUi(
-            deletevar: (p0) {},
-            subjectName: "monica ki ",
-          ),
-        ],
+      floatingActionButton: FloatingActionButton(
+        onPressed: createTask,
+        child: const Icon(
+          Icons.add,
+          color: whitecolor,
+        ),
+        backgroundColor: goldencolor,
+      ),
+      body: ListView.builder(
+        itemCount: data.length,
+        itemBuilder: ((context, index) {
+          return ContainerUi(
+            subjectName: data[index],
+            deletevar: (contest) => deleteTask(index),
+          );
+        }),
       ),
     );
   }
