@@ -37,16 +37,6 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
         ),
-        actions: [
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              "Skip",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.blue.shade800),
-            ),
-          ),
-        ],
       ),
       body: Container(
         color: Colors.black,
@@ -54,15 +44,14 @@ class LoginScreen extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                "assets/2.png",
-                height: 400,
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  "assets/2.png",
+                  height: 500,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 5,
             ),
             Padding(
               padding: const EdgeInsets.all(18.0),
@@ -75,62 +64,36 @@ class LoginScreen extends StatelessWidget {
                   );
                 },
                 icon: Image.asset(
-                  "assets/google.png",
-                  width: 35,
+                  "assets/3.png",
+                  width: 50,
                 ),
-                label: const Text(
-                  "Continue with Google",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: whitecolor,
-                  ),
+                label: Row(
+                  children: [
+                    Text(
+                      "Continue",
+                      style: GoogleFonts.ubuntu(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: blackcolor,
+                      ),
+                    ),
+                    Spacer(),
+                    const Icon(
+                      Icons.arrow_forward_ios,
+                      color: blackcolor,
+                    )
+                  ],
                 ),
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: blackcolor,
+                  minimumSize: const Size(25, 60),
+                  backgroundColor: whitecolor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Center(
-              child: Text(
-                "----or----",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white70),
-              ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: ElevatedButton.icon(
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/github.png",
-                  width: 35,
-                ),
-                label: const Text(
-                  "Continue with GitHub",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: whitecolor,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: blackcolor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-            ),
+            const Spacer(),
           ],
         ),
       ),

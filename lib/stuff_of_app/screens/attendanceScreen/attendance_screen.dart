@@ -48,22 +48,42 @@ class _AttendacePageState extends State<AttendacePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: blackcolor,
-      floatingActionButton: FloatingActionButton(
-        onPressed: createTask,
-        child: const Icon(
-          Icons.add,
-          color: whitecolor,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(left: 50.0),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: FloatingActionButton(
+            onPressed: createTask,
+            elevation: 10,
+            highlightElevation: 10,
+            backgroundColor: goldencolor,
+            child: const Icon(
+              Icons.add,
+              color: blackcolor,
+              size: 25,
+            ),
+          ),
         ),
-        backgroundColor: goldencolor,
       ),
-      body: ListView.builder(
-        itemCount: data.length,
-        itemBuilder: ((context, index) {
-          return ContainerUi(
-            subjectName: data[index],
-            deletevar: (contest) => deleteTask(index),
-          );
-        }),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: data.length,
+              itemBuilder: ((context, index) {
+                return ContainerUi(
+                  subjectName: data[index],
+                  deletevar: (contest) => deleteTask(index),
+                );
+              }),
+            ),
+          ),
+          Container(
+            height: 60,
+            width: double.infinity,
+            color: blackcolor,
+          ),
+        ],
       ),
     );
   }

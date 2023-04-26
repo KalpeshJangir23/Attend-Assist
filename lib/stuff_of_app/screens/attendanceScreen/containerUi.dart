@@ -2,6 +2,7 @@
 // ignore_for_file: file_name
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -62,7 +63,7 @@ class _ContainerUiState extends State<ContainerUi> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.red,
+              backgroundColor: lightblackcolor,
               textColor: Colors.white,
               fontSize: 16.0);
         } else {
@@ -158,7 +159,8 @@ class _ContainerUiState extends State<ContainerUi> {
                             widget.subjectName,
                             softWrap: true,
                             style: GoogleFonts.lato(
-                              fontSize: 20,
+                              fontSize: 32 -
+                                  (0.5 * widget.subjectName.length).toDouble(),
                               fontWeight: FontWeight.bold,
                               color: whitecolor,
                             ),
@@ -182,7 +184,7 @@ class _ContainerUiState extends State<ContainerUi> {
                             //widget.percentageattendace,
                             //totalattendance,
                             style: GoogleFonts.lato(
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: whitecolor,
                             ),
@@ -194,7 +196,9 @@ class _ContainerUiState extends State<ContainerUi> {
                     Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: IconButton(
-                        onPressed: () => widget.deletevar,
+                        onPressed: () {
+                          widget.deletevar!;
+                        },
                         icon: Icon(
                           Icons.delete_forever,
                           color: Colors.red.shade500,
@@ -218,6 +222,7 @@ class _ContainerUiState extends State<ContainerUi> {
                   height: 15,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ///
                     // incremental container
@@ -266,21 +271,44 @@ class _ContainerUiState extends State<ContainerUi> {
                             color: blackcolor,
                           ),
                         ),
-                        child: TextField(
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.ubuntu(
-                              color: whitecolor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25),
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "0",
-                              hintStyle: GoogleFonts.ubuntu(
-                                  color: goldencolor,
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(8, 20, 8, 3),
+                          child: Center(
+                            child: TextField(
+                              cursorColor: whitecolor,
+                              textAlign: TextAlign.center,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')), // Only allow digits
+                                TextInputFormatter.withFunction(
+                                    (oldValue, newValue) {
+                                  // Prevent negative values
+                                  if (newValue.text.isNotEmpty &&
+                                      double.tryParse(newValue.text) != null &&
+                                      double.parse(newValue.text) < 0) {
+                                    return oldValue;
+                                  }
+                                  return newValue;
+                                }),
+                              ],
+                              keyboardType: TextInputType.number,
+
+                              //textAlign: TextAlign.center,
+                              style: GoogleFonts.ubuntu(
+                                  color: whitecolor,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 25)),
-                          onChanged: _onTotalLecturesChanged,
+                                  fontSize: 25),
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "0",
+                                  hintStyle: GoogleFonts.ubuntu(
+                                      color: goldencolor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25)),
+                              onChanged: _onTotalLecturesChanged,
+                            ),
+                          ),
                         ),
                       ),
                     ),
