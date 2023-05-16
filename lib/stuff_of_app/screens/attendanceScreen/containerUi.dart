@@ -112,258 +112,276 @@ class _ContainerUiState extends State<ContainerUi> {
       return percentage;
     }
 
-    double Totalpercentage = number / _totalLectures * 100;
+    // double Totalpercentage = number / _totalLectures * 100;
 
-    return Container(
-      decoration: const BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: blackcolor,
-            offset: Offset(0, 3),
-            blurRadius: 15,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: Padding(
-        padding:
-            const EdgeInsets.only(left: 15, right: 15, top: 8.0, bottom: 8.0),
-        child: Material(
-          elevation: 5.0,
-          color: blackcolor,
-          child: Container(
-            height: 190,
-            width: MediaQuery.of(context).size.width,
-            //color: textColor,
-            decoration: BoxDecoration(
-              color: goldencolor,
-              borderRadius: BorderRadius.circular(12),
-              shape: BoxShape.rectangle,
-            ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 180,
-                      height: 75,
-                      decoration: BoxDecoration(
-                        color: goldencolor,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      //// subject enter text field
-
-                      child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Text(
-                            widget.subjectName,
-                            softWrap: true,
-                            style: GoogleFonts.lato(
-                              fontSize: 32 -
-                                  (0.5 * widget.subjectName.length).toDouble(),
-                              fontWeight: FontWeight.bold,
-                              color: whitecolor,
-                            ),
-                          )),
-                    ),
-
-                    ///
-                    // Subject percentage
-                    Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: Container(
-                        height: 40,
-                        width: 90,
-                        decoration: BoxDecoration(
-                            color: blackcolor,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Center(
-                          child: Text(
-                            '${calculatePercentage(number, _totalLectures).toStringAsFixed(2)}%',
-                            //widget.percentageattendace,
-                            //totalattendance,
-                            style: GoogleFonts.lato(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: whitecolor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: IconButton(
-                        onPressed: () {
-                          widget.deletevar!;
-                        },
-                        icon: Icon(
-                          Icons.delete_forever,
-                          color: Colors.red.shade500,
-                          size: 25,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    )
-                  ],
+    return GestureDetector(
+      onLongPress: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Delete Container'),
+              content: Text('Are you sure you want to delete this container?'),
+              actions: <Widget>[
+                ElevatedButton(
+                  child: Text('Cancel'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                 ),
+                ElevatedButton(
+                  child: Text('Delete'),
+                  onPressed: () {
+                    // Call a function to delete the container
 
-                ///
-                // Divider
-                const Divider(
-                  color: blackcolor,
-                  thickness: 5,
+                    Navigator.of(context).pop();
+                  },
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ///
-                    // incremental container
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          color: blackcolor,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: blackcolor),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '$number',
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.lato(
-                              color: whitecolor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    ///
-                    // slash text
-                    Text(
-                      "/",
-                      style: GoogleFonts.averiaGruesaLibre(
-                          fontSize: 45, color: blackcolor),
-                    ),
-
-                    // User enter text container
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          color: blackcolor,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: blackcolor,
-                          ),
-                        ),
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(8, 20, 8, 3),
-                          child: Center(
-                            child: TextField(
-                              cursorColor: whitecolor,
-                              textAlign: TextAlign.center,
-                              inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'[0-9]')), // Only allow digits
-                                TextInputFormatter.withFunction(
-                                    (oldValue, newValue) {
-                                  // Prevent negative values
-                                  if (newValue.text.isNotEmpty &&
-                                      double.tryParse(newValue.text) != null &&
-                                      double.parse(newValue.text) < 0) {
-                                    return oldValue;
-                                  }
-                                  return newValue;
-                                }),
-                              ],
-                              keyboardType: TextInputType.number,
-
-                              //textAlign: TextAlign.center,
-                              style: GoogleFonts.ubuntu(
-                                  color: whitecolor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25),
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: "0",
-                                  hintStyle: GoogleFonts.ubuntu(
-                                      color: goldencolor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25)),
-                              onChanged: _onTotalLecturesChanged,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    ////
-                    const Spacer(),
-
-                    ///
-                    // plus button
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: _incrementNumber,
-                        child: Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            color: blackcolor,
-                            shape: BoxShape.circle,
-                            border: Border.all(color: blackcolor),
-                          ),
-                          child: const Icon(
-                            Icons.add,
-                            color: whitecolor,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    ///
-                    // minus button
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(
-                        onTap: _decrementNumber,
-                        child: Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            color: blackcolor,
-                            shape: BoxShape.circle,
-                            border: Border.all(color: blackcolor),
-                          ),
-                          child: const Icon(
-                            Icons.remove,
-                            color: whitecolor,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    )
-                  ],
-                )
               ],
+            );
+          },
+        );
+      },
+      child: Container(
+        decoration: const BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: blackcolor,
+              offset: Offset(0, 3),
+              blurRadius: 15,
+              spreadRadius: 2,
+            ),
+          ],
+        ),
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 15, right: 15, top: 8.0, bottom: 8.0),
+          child: Material(
+            elevation: 5.0,
+            color: blackcolor,
+            child: Container(
+              height: 190,
+              width: MediaQuery.of(context).size.width,
+              //color: textColor,
+              decoration: BoxDecoration(
+                color: goldencolor,
+                borderRadius: BorderRadius.circular(12),
+                shape: BoxShape.rectangle,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: 180,
+                        height: 75,
+                        decoration: BoxDecoration(
+                          color: goldencolor,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        //// subject enter text field
+
+                        child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text(
+                              widget.subjectName,
+                              softWrap: true,
+                              style: GoogleFonts.lato(
+                                fontSize: 32 -
+                                    (0.5 * widget.subjectName.length)
+                                        .toDouble(),
+                                fontWeight: FontWeight.bold,
+                                color: whitecolor,
+                              ),
+                            )),
+                      ),
+
+                      ///
+                      // Subject percentage
+                      Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Container(
+                          height: 40,
+                          width: 90,
+                          decoration: BoxDecoration(
+                              color: blackcolor,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Center(
+                            child: Text(
+                              '${calculatePercentage(number, _totalLectures).toStringAsFixed(2)}%',
+                              //widget.percentageattendace,
+                              //totalattendance,
+                              style: GoogleFonts.lato(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: whitecolor,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(
+                        width: 8,
+                      )
+                    ],
+                  ),
+
+                  ///
+                  // Divider
+                  const Divider(
+                    color: blackcolor,
+                    thickness: 5,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ///
+                      // incremental container
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            color: blackcolor,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: blackcolor),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '$number',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.lato(
+                                color: whitecolor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      ///
+                      // slash text
+                      Text(
+                        "/",
+                        style: GoogleFonts.averiaGruesaLibre(
+                            fontSize: 45, color: blackcolor),
+                      ),
+
+                      // User enter text container
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            color: blackcolor,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: blackcolor,
+                            ),
+                          ),
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(8, 20, 8, 3),
+                            child: Center(
+                              child: TextField(
+                                cursorColor: whitecolor,
+                                textAlign: TextAlign.center,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp(r'[0-9]')), // Only allow digits
+                                  TextInputFormatter.withFunction(
+                                      (oldValue, newValue) {
+                                    // Prevent negative values
+                                    if (newValue.text.isNotEmpty &&
+                                        double.tryParse(newValue.text) !=
+                                            null &&
+                                        double.parse(newValue.text) < 0) {
+                                      return oldValue;
+                                    }
+                                    return newValue;
+                                  }),
+                                ],
+                                keyboardType: TextInputType.number,
+
+                                //textAlign: TextAlign.center,
+                                style: GoogleFonts.ubuntu(
+                                    color: whitecolor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25),
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "0",
+                                    hintStyle: GoogleFonts.ubuntu(
+                                        color: goldencolor,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25)),
+                                onChanged: _onTotalLecturesChanged,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      ////
+                      const Spacer(),
+
+                      ///
+                      // plus button
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GestureDetector(
+                          onTap: _incrementNumber,
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: blackcolor,
+                              shape: BoxShape.circle,
+                              border: Border.all(color: blackcolor),
+                            ),
+                            child: const Icon(
+                              Icons.add,
+                              color: whitecolor,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      ///
+                      // minus button
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GestureDetector(
+                          onTap: _decrementNumber,
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: blackcolor,
+                              shape: BoxShape.circle,
+                              border: Border.all(color: blackcolor),
+                            ),
+                            child: const Icon(
+                              Icons.remove,
+                              color: whitecolor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

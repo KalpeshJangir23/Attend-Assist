@@ -44,6 +44,36 @@ class _AttendacePageState extends State<AttendacePage> {
     });
   }
 
+  void deleteContainer(int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Delete Container?"),
+          content: Text("Are you sure you want to delete this container?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("CANCEL"),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  data.removeAt(index);
+                });
+                deleteTask(index);
+                Navigator.pop(context);
+              },
+              child: Text("DELETE"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
