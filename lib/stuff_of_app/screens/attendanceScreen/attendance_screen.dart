@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:attend_assist/impstuff/colorss.dart';
 import 'package:attend_assist/stuff_of_app/screens/attendanceScreen/attendDialogbox.dart';
 import 'package:attend_assist/stuff_of_app/screens/attendanceScreen/containerUi.dart';
@@ -7,19 +9,23 @@ class AttendacePage extends StatefulWidget {
   const AttendacePage({super.key});
 
   @override
-  State<AttendacePage> createState() => _AttendacePageState();
+  _AttendacePageState createState() => _AttendacePageState();
 }
 
 class _AttendacePageState extends State<AttendacePage> {
   final _controller = TextEditingController();
 
-  final List data = [
-    "Maths",
+  List<ContainerUi> containerList = [
+    ContainerUi(
+      subjectName: 'Maths',
+    ),
   ];
 
   void onSave() {
     setState(() {
-      data.add(_controller.text);
+      containerList.add(ContainerUi(
+        subjectName: _controller.text,
+      ));
       _controller.clear();
     });
     Navigator.of(context).pop();
@@ -38,40 +44,36 @@ class _AttendacePageState extends State<AttendacePage> {
     );
   }
 
-  void deleteTask(int index) {
-    setState(() {
-      data.removeAt(index);
-    });
-  }
-
-  void deleteContainer(int index) {
-    showDialog(
+  Future<void> showDeleteConfirmationDialog(int index) async {
+    return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Delete Container?"),
-          content: Text("Are you sure you want to delete this container?"),
-          actions: [
+          title: const Text('Confirm Delete'),
+          content:
+              const Text('Are you sure you want to delete this container?'),
+          actions: <Widget>[
             TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text("CANCEL"),
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
-                setState(() {
-                  data.removeAt(index);
-                });
                 deleteTask(index);
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
-              child: Text("DELETE"),
+              child: const Text('Delete'),
             ),
           ],
         );
       },
     );
+  }
+
+  void deleteTask(int index) {
+    setState(() {
+      containerList.removeAt(index);
+    });
   }
 
   @override
@@ -99,19 +101,19 @@ class _AttendacePageState extends State<AttendacePage> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: data.length,
-              itemBuilder: ((context, index) {
-                return ContainerUi(
-                  subjectName: data[index],
-                  deletevar: (contest) => deleteTask(index),
+              itemCount: containerList.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onLongPress: () => showDeleteConfirmationDialog(index),
+                  child: containerList[index],
                 );
-              }),
+              },
             ),
           ),
           Container(
             height: 60,
             width: double.infinity,
-            color: blackcolor,
+            color: Colors.black,
           ),
         ],
       ),
